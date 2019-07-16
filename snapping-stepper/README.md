@@ -1,7 +1,17 @@
 # Snapping Stepper
 
-// TODO: add image or gif and document apis
-// TODO: add type and refactor required/optional, split event emitters from properties?
+// TODO: add image or gif and document apis  
+// TODO: add snippet on how to use  
+// TODO: add type and refactor required/optional, split event emitters from properties?  
+
+## Usage
+```ts
+import { SnappingStepperModule } from './snapping-stepper/snapping-stepper.module';
+```  
+
+```html
+<app-snapping-stepper [stepperConfig]="stepperConfig" (valueChange)="onStepperValueChange($event)"></app-snapping-stepper>
+```
 
 ## API
 
