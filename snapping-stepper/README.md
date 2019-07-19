@@ -26,13 +26,13 @@ stepperConfig: StepperConfig = {
 
 | Property              | Android | iOS | Description                                                                    | Note                                                                                                 |
 | --------------------- | :-------: | :---: | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| width | :heavy_check_mark: | :heavy_check_mark: | Sets the width of the stepper | Required |
-| height | :heavy_check_mark: | :heavy_check_mark: | Sets the height of the stepper | Required |
-| limitLower | :heavy_check_mark: | :heavy_check_mark: | Sets the lower limit of the count | Required |
-| limitHigher | :heavy_check_mark: | :heavy_check_mark: | Sets the higher limit of the count | Required |
-| startingNum | :heavy_check_mark: | :heavy_check_mark: | Sets the initial value of the count | Optional (Defaults to the `limitLower`) |
-| backgroundColor | :heavy_check_mark: | :heavy_check_mark: | Sets the background color of the stepper | Optional (Defaults to white) |
-| textColor | :heavy_check_mark: | :heavy_check_mark: | Sets the text color of the positive and negative buttons | Optional (Defaults to black) |
-| focusBackgroundColor | :heavy_check_mark: | :heavy_check_mark: | Sets the background color of the middle section containing the count | Optional (Defaults to white) |
-| focusTextColor | :heavy_check_mark: | :heavy_check_mark: | Sets the text color of the count | Optional (Defaults to black) |
-| valueChange | :heavy_check_mark: | :heavy_check_mark: | Emits the current count | |
+| width | :white_check_mark: | :white_check_mark: | Sets the width of the stepper | Required |
+| height | :white_check_mark: | :white_check_mark: | Sets the height of the stepper | Required |
+| limitLower | :white_check_mark: | :white_check_mark: | Sets the lower limit of the count | Required |
+| limitHigher | :white_check_mark: | :white_check_mark: | Sets the higher limit of the count | Required |
+| startingNum | :white_check_mark: | :white_check_mark: | Sets the initial value of the count | Optional (Defaults to the `limitLower`) |
+| backgroundColor | :white_check_mark: | :white_check_mark: | Sets the background color of the stepper | Optional (Defaults to white) |
+| textColor | :white_check_mark: | :white_check_mark: | Sets the text color of the positive and negative buttons | Optional (Defaults to black) |
+| focusBackgroundColor | :white_check_mark: | :white_check_mark: | Sets the background color of the middle section containing the count | Optional (Defaults to white) |
+| focusTextColor | :white_check_mark: | :white_check_mark: | Sets the text color of the count | Optional (Defaults to black) |
+| valueChange | :white_check_mark: | :white_check_mark: | Emits the current count | |
