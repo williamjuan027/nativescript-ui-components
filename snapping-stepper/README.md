@@ -1,7 +1,6 @@
 # Snapping Stepper
 
-// TODO: add image or gif and document apis  
-// TODO: add type and refactor required/optional, split event emitters from properties?  
+![Screenshot](https://github.com/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif)
 
 ## Usage
 ```ts
