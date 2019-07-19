@@ -1,12 +1,21 @@
 # Snapping Stepper
 
 // TODO: add image or gif and document apis  
-// TODO: add snippet on how to use  
 // TODO: add type and refactor required/optional, split event emitters from properties?  
 
 ## Usage
 ```ts
-import { SnappingStepperModule } from './snapping-stepper/snapping-stepper.module';
+import { SnappingStepperModule, StepperConfig } from './snapping-stepper/snapping-stepper.module';
+
+stepperConfig: StepperConfig = {
+  width: 100,
+  height: 100,
+  limitLower: 0,
+  limitHigher: 100,
+  startingNum: 50,
+  backgroundColor: '#dd00ff',
+  textColor: '#000000'
+}
 ```  
 
 ```html
