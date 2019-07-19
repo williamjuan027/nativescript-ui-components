@@ -1,6 +1,6 @@
 # Snapping Stepper
 
-![Screenshot](https://github.com/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif)
+![Screenshot](https://github.com/williamjuan027/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif)
 
 ## Usage
 ```ts
