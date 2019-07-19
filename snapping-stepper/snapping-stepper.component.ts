@@ -1,5 +1,6 @@
 import { Component, OnChanges, SimpleChanges, Input, Output, EventEmitter } from "@angular/core";
 import { GridLayout } from "ui/layouts/grid-layout";
+import { AnimationCurve } from "ui/enums";
 
 import { StepperConfig } from "./stepperConfig";
 
@@ -81,6 +82,7 @@ export class SnappingStepperComponent implements OnChanges {
 			// snap back to original position
 			grdLayout.animate({
 				translate: { x: 0, y: 0 },
+				curve: AnimationCurve.cubicBezier(0, 0.405, 0, 1.285),
 				duration: 200
 			});
 		}
