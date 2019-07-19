@@ -5,7 +5,8 @@
 
 ## Usage
 ```ts
-import { SnappingStepperModule, StepperConfig } from './snapping-stepper/snapping-stepper.module';
+import { SnappingStepperModule } from './snapping-stepper/snapping-stepper.module';
+import { StepperConfig } from './snapping-stepper/snapping-stepper/stepper-config';
 
 stepperConfig: StepperConfig = {
   width: 100,
