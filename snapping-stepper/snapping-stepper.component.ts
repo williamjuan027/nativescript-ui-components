@@ -139,6 +139,8 @@ export class SnappingStepperComponent implements OnChanges {
 				if (newX > 0 && this.panOpt.direction !== 'right') {
 					// pan right
 					this.clearPanTimer();
+					// use set interval to make the increment/decrement speed more consistent,
+					// not depending on how much movement the panning captures
 					this.panOpt.timer = setInterval(() => {
 						this.stepPositive(false);
 					}, 10);
