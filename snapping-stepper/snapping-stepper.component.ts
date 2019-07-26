@@ -131,7 +131,7 @@ export class SnappingStepperComponent implements OnChanges {
 			this.prevDeltaX = 0;
 		} else if (args.state === 2) {
 			// finger moving
-			if (Math.abs(newX) < this.stepperConfig.width / 3) {
+			if (Math.abs(newX) < this.stepperConfig.width / 3 && (Math.abs(args.deltaY) < this.stepperConfig.height)) {
 				grdLayout.translateX = newX;
 
 				// increment or decrement stepper depending on pan direction
@@ -140,19 +140,18 @@ export class SnappingStepperComponent implements OnChanges {
 					// pan right
 					this.clearPanTimer();
 					this.panOpt.timer = setInterval(() => {
-						this.stepPositive();
+						this.stepPositive(false);
 					}, 10);
 				} else if (newX <= 0 && this.panOpt.direction !== 'left') {
 					// pan left
 					this.clearPanTimer();
 					this.panOpt.timer = setInterval(() => {
-						this.stepNegative();
+						this.stepNegative(false);
 					}, 10);
 				}
 			} else {
 				// out of bounds
-				console.log('out of bounds?');
-				// this.clearPanTimer();
+				this.clearPanTimer();
 			}
 			this.prevDeltaX = args.deltaX;
 		} else if (args.state === 3) {
@@ -167,6 +166,7 @@ export class SnappingStepperComponent implements OnChanges {
 			});
 			this.panOpt.direction = null;
 			this.clearPanTimer();
+			this.emitCountValue();
 		}
 	}
 
