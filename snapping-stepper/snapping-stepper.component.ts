@@ -74,11 +74,11 @@ export class SnappingStepperComponent implements OnChanges {
 	}
 
 	startTouchTimer(state: 'positive' | 'negative'): void {
-		if (state === 'positive' && this.stepCount < this.stepperConfig.limitUpper) {
+		if (state === 'positive' && this.stepCount < this._stepperConfig.limitUpper) {
 			this.stepPositive(false);
 			this.touchOpt.interval = this.touchOpt.interval * 0.8;	// accelerate
 			this.touchOpt.timer = setTimeout(this.startTouchTimer.bind(this, state), this.touchOpt.interval);
-		} else if (state === 'negative' && this.stepCount > this.stepperConfig.limitLower) {
+		} else if (state === 'negative' && this.stepCount > this._stepperConfig.limitLower) {
 			this.stepNegative(false);
 			this.touchOpt.interval = this.touchOpt.interval * 0.8;  // accelerate
 			this.touchOpt.timer = setTimeout(this.startTouchTimer.bind(this, state), this.touchOpt.interval);
@@ -100,7 +100,7 @@ export class SnappingStepperComponent implements OnChanges {
 
 	stepNegative(shouldEmitValue: boolean = true): void {
 		// decrement if still within bounds
-		if (this.stepCount > this.stepperConfig.limitLower) {
+		if (this.stepCount > this._stepperConfig.limitLower) {
 			this.stepCount -= 1;
 			this.stepCountSubject.next(this.stepCount);
 
@@ -112,7 +112,7 @@ export class SnappingStepperComponent implements OnChanges {
 
 	stepPositive(shouldEmitValue: boolean = true): void {
 		// increment if still within bounds
-		if (this.stepCount < this.stepperConfig.limitUpper) {
+		if (this.stepCount < this._stepperConfig.limitUpper) {
 			this.stepCount += 1;
 			this.stepCountSubject.next(this.stepCount);
 
@@ -135,7 +135,7 @@ export class SnappingStepperComponent implements OnChanges {
 			this.prevDeltaX = 0;
 		} else if (args.state === 2) {
 			// finger moving
-			if (Math.abs(newX) < this.stepperConfig.width / 3 && (Math.abs(args.deltaY) < this.stepperConfig.height)) {
+			if (Math.abs(newX) < this._stepperConfig.width / 3 && (Math.abs(args.deltaY) < this._stepperConfig.height)) {
 				grdLayout.translateX = newX;
 
 				// increment or decrement stepper depending on pan direction
