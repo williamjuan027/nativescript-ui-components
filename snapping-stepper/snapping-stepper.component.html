@@ -1,18 +1,18 @@
-<GridLayout columns="*, *, *" [width]="stepperConfig.width" [height]="stepperConfig.height"
-    [backgroundColor]="stepperConfig.backgroundColor" [borderRadius]="10">
+<GridLayout columns="*, *, *" [width]="_stepperConfig.width" [height]="_stepperConfig.height"
+    [backgroundColor]="_stepperConfig.backgroundColor" [borderRadius]="10">
     <GridLayout (touch)="onStepTouch($event, 'negative')" col="0">
         <Label text="-" verticalAlignment="center" horizontalAlignment="center"
-            [color]="stepperConfig.textColor"></Label>
+            [color]="_stepperConfig.textColor"></Label>
     </GridLayout>
 
     <GridLayout (touch)="onStepTouch($event, 'positive')" col="2">
         <Label text="+" verticalAlignment="center" horizontalAlignment="center"
-            [color]="stepperConfig.textColor"></Label>
+            [color]="_stepperConfig.textColor"></Label>
     </GridLayout>
 
-    <GridLayout col="1" [backgroundColor]="stepperConfig.focusBackgroundColor"
+    <GridLayout col="1" [backgroundColor]="_stepperConfig.focusBackgroundColor"
         [borderRadius]="10" (pan)="onCountPan($event)">
         <Label [text]="stepCountSubject | async" verticalAlignment="center"
-            horizontalAlignment="center" [color]="stepperConfig.focusTextColor"></Label>
+            horizontalAlignment="center" [color]="_stepperConfig.focusTextColor"></Label>
     </GridLayout>
 </GridLayout>
