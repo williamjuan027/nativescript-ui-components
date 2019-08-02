@@ -6,6 +6,17 @@ import { BehaviorSubject } from 'rxjs';
 import { StepperConfig } from "./stepperConfig";
 
 export const TOUCH_SPEED: number = 500; // set how fast you want the count to increment/decrement
+export const DEFAULT_CONFIG: StepperConfig = {
+    width: 150,
+    height: 50,
+    backgroundColor: '#',
+    textColor: '#ffffff',
+    focusBackgroundColor: '#',
+    focusTextColor: '#',
+    startingNum: 50,
+    limitLower: 0,
+    limitHigher: 100
+}
 
 @Component({
 	selector: "app-snapping-stepper",
@@ -14,18 +25,9 @@ export const TOUCH_SPEED: number = 500; // set how fast you want the count to in
 	styleUrls: ['./snapping-stepper.component.css']
 })
 export class SnappingStepperComponent implements OnChanges {
-
-	@Input() stepperConfig: StepperConfig = {
-		width: 200,
-		height: 50,
-		backgroundColor: '#4400dd',
-		textColor: '#ffffff',
-		focusBackgroundColor: '#6622ff',
-		focusTextColor: '#ffffff',
-		startingNum: 0,
-		limitLower: -50,
-		limitUpper: 50,
-	};
+	
+	@Input() stepperConfig: StepperConfig;          // properties passed in by parent
+	_stepperConfig: StepperConfig = DEFAULT_CONFIG; // properties that will be used by component
 
 	@Output() valueChange = new EventEmitter<number>();
 
@@ -49,7 +51,10 @@ export class SnappingStepperComponent implements OnChanges {
 	}
 
 	ngOnChanges(changes: SimpleChanges): void {
-
+	  if (changes.stepperConfig) {
+		// merge and replace the previous values with the parent defined values
+		this._stepperConfig = { ...DEFAULT_CONFIG, ...changes.stepperConfig.currentValue };	  
+	  }
 	}
 
 	// private touchTimer = null;
@@ -99,7 +104,6 @@ export class SnappingStepperComponent implements OnChanges {
 			this.stepCount -= 1;
 			this.stepCountSubject.next(this.stepCount);
 
-			// TODO: emit only when its settled
 			if (shouldEmitValue) {
 				this.emitCountValue();
 			}
