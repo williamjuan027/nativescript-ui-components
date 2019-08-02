@@ -15,7 +15,7 @@ export const DEFAULT_CONFIG: StepperConfig = {
     focusTextColor: '#ffffff',
     startingNum: 50,
     limitLower: 0,
-    limitHigher: 100
+    limitUpper: 100
 }
 
 @Component({
