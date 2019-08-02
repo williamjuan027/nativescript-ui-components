@@ -3,7 +3,7 @@ import { GridLayout } from "ui/layouts/grid-layout";
 import { AnimationCurve } from "ui/enums";
 import { BehaviorSubject } from 'rxjs';
 
-import { StepperConfig } from "./stepperConfig";
+import { StepperConfig } from "./stepper-config";
 
 export const TOUCH_SPEED: number = 500; // set how fast you want the count to increment/decrement
 export const DEFAULT_CONFIG: StepperConfig = {
