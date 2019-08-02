@@ -2,10 +2,19 @@
 
 ![Screenshot](https://github.com/williamjuan027/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif)
 
+play ground demo: https://play.nativescript.org/?template=play-ng&id=5vBsm6&v=24
+
 ## Usage
+Import `SnappingStepperModule` in the module you want to use it  
 ```ts
+// .module.ts
 import { SnappingStepperModule } from './snapping-stepper/snapping-stepper.module';
-import { StepperConfig } from './snapping-stepper/snapping-stepper/stepper-config';
+```
+
+Import `StepperConfig` interface to define the properties of the stepper and pass it to the snapping-stepper component as `stepperConfig`  
+```ts
+// .component.ts
+import { StepperConfig } from './snapping-stepper/stepper-config';
 
 stepperConfig: StepperConfig = {
   width: 100,
@@ -19,6 +28,7 @@ stepperConfig: StepperConfig = {
 ```  
 
 ```html
+<!-- .component.html -->
 <app-snapping-stepper [stepperConfig]="stepperConfig" (valueChange)="onStepperValueChange($event)"></app-snapping-stepper>
 ```
 
