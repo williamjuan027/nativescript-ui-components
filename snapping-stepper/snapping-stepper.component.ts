@@ -9,10 +9,10 @@ export const TOUCH_SPEED: number = 500; // set how fast you want the count to in
 export const DEFAULT_CONFIG: StepperConfig = {
     width: 150,
     height: 50,
-    backgroundColor: '#',
+    backgroundColor: '#1976d2',
     textColor: '#ffffff',
-    focusBackgroundColor: '#',
-    focusTextColor: '#',
+    focusBackgroundColor: '#2196f3',
+    focusTextColor: '#ffffff',
     startingNum: 50,
     limitLower: 0,
     limitHigher: 100
