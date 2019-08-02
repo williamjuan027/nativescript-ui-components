@@ -45,4 +45,4 @@ stepperConfig: StepperConfig = {
 | textColor | Sets the text color of the positive and negative buttons | string | '#ffffff' |
 | focusBackgroundColor | Sets the background color of the middle section containing the count | string | '#2196f3' |
 | focusTextColor | Sets the text color of the count | string | '#ffffff'' |
-| valueChange | Emits the current count | number | |
+| (valueChange) | Emits the current count | number | |
