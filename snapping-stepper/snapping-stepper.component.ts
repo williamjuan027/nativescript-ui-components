@@ -31,7 +31,7 @@ export class SnappingStepperComponent implements OnChanges {
 
 	@Output() valueChange = new EventEmitter<number>();
 
-	public stepCount: number = this.stepperConfig.startingNum;
+	public stepCount: number = this._stepperConfig.startingNum;
 	private stepCountSubject: BehaviorSubject<number> = new BehaviorSubject(this.stepCount);
 
 	private prevDeltaX: number = 0;
