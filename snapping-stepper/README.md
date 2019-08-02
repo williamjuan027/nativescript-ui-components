@@ -2,7 +2,7 @@
 
 ![Screenshot](https://github.com/williamjuan027/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif)
 
-Playground demo: https://play.nativescript.org/?template=play-ng&id=5vBsm6&v=24
+Playground demo: https://play.nativescript.org/?template=play-ng&id=6wCQbR&v=1
 
 ## Usage
 Import `SnappingStepperModule` in the module you want to use it  
