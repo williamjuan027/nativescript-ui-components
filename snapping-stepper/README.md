@@ -2,7 +2,7 @@
 
 ![Screenshot](https://github.com/williamjuan027/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif)
 
-play ground demo: https://play.nativescript.org/?template=play-ng&id=5vBsm6&v=24
+Playground demo: https://play.nativescript.org/?template=play-ng&id=5vBsm6&v=24
 
 ## Usage
 Import `SnappingStepperModule` in the module you want to use it  
@@ -34,15 +34,15 @@ stepperConfig: StepperConfig = {
 
 ## API
 
-| Property              | Android | iOS | Description                                                                    | Note                                                                                                 |
-| --------------------- | :-------: | :---: | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| width | :white_check_mark: | :white_check_mark: | Sets the width of the stepper | Required |
-| height | :white_check_mark: | :white_check_mark: | Sets the height of the stepper | Required |
-| limitLower | :white_check_mark: | :white_check_mark: | Sets the lower limit of the count | Required |
-| limitHigher | :white_check_mark: | :white_check_mark: | Sets the higher limit of the count | Required |
-| startingNum | :white_check_mark: | :white_check_mark: | Sets the initial value of the count | Optional (Defaults to the `limitLower`) |
-| backgroundColor | :white_check_mark: | :white_check_mark: | Sets the background color of the stepper | Optional (Defaults to white) |
-| textColor | :white_check_mark: | :white_check_mark: | Sets the text color of the positive and negative buttons | Optional (Defaults to black) |
-| focusBackgroundColor | :white_check_mark: | :white_check_mark: | Sets the background color of the middle section containing the count | Optional (Defaults to white) |
-| focusTextColor | :white_check_mark: | :white_check_mark: | Sets the text color of the count | Optional (Defaults to black) |
-| valueChange | :white_check_mark: | :white_check_mark: | Emits the current count | |
+| Property              | Description                                                                    | Type | Default                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | --------- |
+| width | Sets the width of the stepper | number | 150 |
+| height | Sets the height of the stepper | number | 50 |
+| limitLower | Sets the lower limit of the count | number | 0 |
+| limitHigher | Sets the higher limit of the count | number | 100 |
+| startingNum | Sets the initial value of the count | number | 50 |
+| backgroundColor | Sets the background color of the stepper | string | '#1976d2' |
+| textColor | Sets the text color of the positive and negative buttons | string | '#ffffff' |
+| focusBackgroundColor | Sets the background color of the middle section containing the count | string | '#2196f3' |
+| focusTextColor | Sets the text color of the count | string | '#ffffff'' |
+| valueChange | Emits the current count | number | |
