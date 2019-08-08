@@ -1,6 +1,6 @@
 # Snapping Stepper
 
-![Screenshot](https://github.com/williamjuan027/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif)
+<img src="https://github.com/williamjuan027/nativescript-ui-components/blob/master/screenshots/snapping-stepper.gif" width="150">
 
 Read the complete tutorial [here](https://nativescripting.com/posts/snapping-stepper-tutorial) and checkout out the playground demo [here](https://play.nativescript.org/?template=play-ng&id=6wCQbR&v=1).
 
