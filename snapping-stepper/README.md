@@ -32,7 +32,7 @@ stepperConfig: StepperConfig = {
 <app-snapping-stepper [stepperConfig]="stepperConfig" (valueChange)="onStepperValueChange($event)"></app-snapping-stepper>
 ```
 
-## API
+## Properties
 
 | Property              | Description                                                                    | Type | Default                                                                                                 |
 | --------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- | --------- |
