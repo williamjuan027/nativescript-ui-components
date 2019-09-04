@@ -6,6 +6,7 @@ export interface StepperConfig {
     focusBackgroundColor?: string,
     focusTextColor?: string,
     startingNum?: number,
+    stepValue?: number,
     limitLower?: number,
     limitUpper?: number
 }

@@ -14,6 +14,7 @@ export const DEFAULT_CONFIG: StepperConfig = {
     focusBackgroundColor: '#2196f3',
     focusTextColor: '#ffffff',
     startingNum: 50,
+    stepValue: 1,
     limitLower: 0,
     limitUpper: 100
 }
@@ -101,7 +102,7 @@ export class SnappingStepperComponent implements OnChanges {
 	stepNegative(shouldEmitValue: boolean = true): void {
 		// decrement if still within bounds
 		if (this.stepCount > this._stepperConfig.limitLower) {
-			this.stepCount -= 1;
+			this.stepCount -= this._stepperConfig.stepValue;
 			this.stepCountSubject.next(this.stepCount);
 
 			if (shouldEmitValue) {
@@ -113,7 +114,7 @@ export class SnappingStepperComponent implements OnChanges {
 	stepPositive(shouldEmitValue: boolean = true): void {
 		// increment if still within bounds
 		if (this.stepCount < this._stepperConfig.limitUpper) {
-			this.stepCount += 1;
+			this.stepCount += this._stepperConfig.stepValue;
 			this.stepCountSubject.next(this.stepCount);
 
 			if (shouldEmitValue) {
