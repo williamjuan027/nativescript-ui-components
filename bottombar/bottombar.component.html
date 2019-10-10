@@ -1,0 +1,12 @@
+<GridLayout *ngIf="tabs && gridColumns" [height]="config?.height || 60" verticalAlignment="bottom">
+  <GridLayout [columns]="gridColumns" [height]="config?.height || 60" [backgroundColor]="config?.backgroundColor || '#0D0D12'">
+
+   <!-- moving highlights -->
+   <GridLayout #tabHighlight col="0" [backgroundColor]="config?.highlightColor || '#F8A200'"></GridLayout>
+
+   <GridLayout *ngFor="let tab of tabs; let i = index" [col]="i" (tap)="selectTab(i)">
+      <Image #tabImage [src]="tab.image" height="25" width="25"></Image>
+   </GridLayout>
+
+  </GridLayout>
+</GridLayout>
