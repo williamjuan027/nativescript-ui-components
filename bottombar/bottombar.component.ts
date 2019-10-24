@@ -11,7 +11,7 @@ export class BottombarComponent implements OnChanges, AfterViewInit {
 
 	@Input() tabs: Tabs = [];
 	@Input() selectedIndex: number = 0;
-  @Input() config: BottombarConfig;
+	@Input() config: BottombarConfig;
 	@Output() selectedIndexChange = new EventEmitter<number>();
 
 	// to animate the highlight
@@ -70,9 +70,9 @@ export class BottombarComponent implements OnChanges, AfterViewInit {
 
 	getImage(index: number) {
 	  if (index < this.tabs.length) {
-	    return tabImage.toArray()[index];
+	    return this.tabImage.toArray()[index];
 	  } else {
-	    return tabImage.toArray()[0];
+	    return this.tabImage.toArray()[0];
 	  }
 	}
 
