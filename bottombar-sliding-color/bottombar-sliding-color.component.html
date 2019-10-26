@@ -1,0 +1,30 @@
+<GridLayout *ngIf="tabs && gridColumns" [columns]="gridColumns"
+    [height]="config?.height || 60"
+    [backgroundColor]="config?.backgroundColor || '#0D0D12'"
+    verticalAlignment="bottom">
+
+    <!-- Tab backgrounds -->
+    <GridLayout *ngFor="let tab of tabs; let i = index" [col]="i"
+        [backgroundColor]="tab.backgroundColor">
+    </GridLayout>
+
+    <!-- moving mask -->
+    <AbsoluteLayout col="0" [colSpan]="tabs.length">
+        <GridLayout #tabMask columns="auto, auto, auto">
+            <GridLayout #leftMask col="0" [height]="config?.height || 60"
+            [backgroundColor]="config?.backgroundColor"></GridLayout>
+    <GridLayout #centerMask col="1" [height]="config?.height || 60">
+    </GridLayout>
+    <GridLayout #rightMask col="2" [height]="config?.height || 60"
+      [backgroundColor]="config?.backgroundColor"></GridLayout>
+        </GridLayout>
+    </AbsoluteLayout>
+
+    <!-- Tab image and text -->
+    <GridLayout *ngFor="let tab of tabs; let i = index" [col]="i"
+        (tap)="selectTab(i)">
+        <Image #tabImage [src]="tab.image" height="25" width="25"></Image>
+        <Label #tabLabel [text]="tab.text || ''" fontSize="15" fontWeight="bold" color="#fff" marginBottom="10" verticalAlignment="bottom" horizontalAlignment="center"></Label>
+    </GridLayout>
+
+</GridLayout>
