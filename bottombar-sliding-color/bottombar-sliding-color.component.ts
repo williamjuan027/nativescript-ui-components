@@ -17,7 +17,6 @@ export class BottombarSlidingColorComponent implements OnChanges, AfterViewInit 
 	@Output() selectedIndexChange = new EventEmitter<number>();
 
 	// to animate the highlight
-	@ViewChild('tabMask', { static: false }) tabMask: ElementRef;
 	@ViewChild('centerMask', { static: false }) centerMask: ElementRef;
 	@ViewChild('leftMask', { static: false }) leftMask: ElementRef;
 	@ViewChild('rightMask', { static: false }) rightMask: ElementRef;
@@ -88,57 +87,63 @@ export class BottombarSlidingColorComponent implements OnChanges, AfterViewInit 
 			this._selectedTab = index;
 			this.animateTab(index, previousTab);
 
-			this.animateCurrentImage(this.getImage(index)).then(() => {
-				this.animateCurrentText(this.getText(index))
-			});
-			this.animatePreviousImage(this.getImage(previousTab)).then(() => {
-				this.animatePreviousText(this.getText(previousTab))
-			});
+			this.animateToActiveTab(index);
 
+			this.animateToInactiveTab(previousTab);
 		}
+		// always emit the new index, unless explicitly stated not to
 		if (shouldEmit) {
 			this.selectedIndexChange.emit(this._selectedTab);
 		}
 	}
 
+	// ----------------------------------------------------------------------
+	// Tab Animation
 
-	animateTab(index: number, previousIndex: number): void {
-		const ogTranslateX = this.tabMask.nativeElement.translateX;
-		let definitions = new Array<AnimationDefinition>();
+	animateToActiveTab(index: number): Promise<void> {
+		return this.animateCurrentImage(this.getImage(index)).then(() => {
+			return this.animateCurrentText(this.getText(index))
+		});
+	}
 
-		let a1: AnimationDefinition = {
-			target: index > previousIndex ? this.rightMask.nativeElement : this.leftMask.nativeElement,
-			translate: { x: this.getMaskTranslateX(index), y: 0 },
-			duration: 200
-		}
-		definitions.push(a1);
-
-		let animationSet = new Animation(definitions);
-		animationSet.play().then(() => {
-			let definitions2 = new Array<AnimationDefinition>();
-			let a1: AnimationDefinition = {
-				target: this.leftMask.nativeElement,
-				translate: { x: this.getMaskTranslateX(index), y: 0 },
-				duration: 250
-			}
-			definitions2.push(a1);
-
-			let a2: AnimationDefinition = {
-				target: this.rightMask.nativeElement,
-				translate: { x: this.getMaskTranslateX(index), y: 0 },
-				duration: 250
-			}
-			definitions2.push(a2);
-
-			let animationSet2 = new Animation(definitions2);
-			animationSet2.play().then(() => {
-				console.log('done');
-			});
+	animateToInactiveTab(index: number): Promise<void> {
+		return this.animatePreviousImage(this.getImage(index)).then(() => {
+			return this.animatePreviousText(this.getText(index))
 		});
 	}
 
 	// ----------------------------------------------------------------------
 	// Mask Animation
+
+	animateTab(index: number, previousIndex: number): Promise<void> {
+		return this.startStretchAnimation(index, previousIndex).then(() => {
+			return this.startChaseAnimation(index, previousIndex);
+		});
+	}
+
+	startStretchAnimation(index: number, previousIndex: number): Promise<void> {
+		const definitions = new Array<AnimationDefinition>();
+		const def: AnimationDefinition = {
+			target: index > previousIndex ? this.rightMask.nativeElement : this.leftMask.nativeElement,
+			translate: { x: this.getMaskTranslateX(index), y: 0 },
+			duration: 150
+		}
+		definitions.push(def);
+		let animationSet = new Animation(definitions);
+		return animationSet.play()
+	}
+
+	startChaseAnimation(index: number, previousIndex: number): Promise<void> {
+		const definitions = new Array<AnimationDefinition>();
+		const def: AnimationDefinition = {
+			target: index > previousIndex ? this.leftMask.nativeElement : this.rightMask.nativeElement,
+			translate: { x: this.getMaskTranslateX(index), y: 0 },
+			duration: 200
+		}
+		definitions.push(def);
+		const animationSet = new Animation(definitions);
+		return animationSet.play();
+	}
 
 	getMaskTranslateX(index: number): number {
 		return (index * screen.mainScreen.widthDIPs / this.tabs.length) - screen.mainScreen.widthDIPs;
@@ -162,7 +167,7 @@ export class BottombarSlidingColorComponent implements OnChanges, AfterViewInit 
 				scale: { x: 1.3, y: 1.3 },
 				translate: { x: 0, y: - 10 },
 				curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
-				duration: 300
+				duration: 200
 			});
 		} else {
 			arg.nativeElement.scaleX = 1.3;
@@ -180,7 +185,7 @@ export class BottombarSlidingColorComponent implements OnChanges, AfterViewInit 
 				scale: { x: 1, y: 1 },
 				translate: { x: 0, y: 0 },
 				curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
-				duration: 300
+				duration: 200
 			});
 		} else {
 			arg.nativeElement.scaleX = 1;
@@ -208,7 +213,7 @@ export class BottombarSlidingColorComponent implements OnChanges, AfterViewInit 
 			return arg.nativeElement.animate({
 				translate: { x: 0, y: 0 },
 				curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
-				duration: 300
+				duration: 200
 			});
 		} else {
 			arg.nativeElement.translateX = 0;
@@ -223,7 +228,7 @@ export class BottombarSlidingColorComponent implements OnChanges, AfterViewInit 
 			return arg.nativeElement.animate({
 				translate: { x: 0, y: 80 },
 				curve: AnimationCurve.cubicBezier(1, .02, .45, .93),
-				duration: 300
+				duration: 200
 			});
 		} else {
 			arg.nativeElement.translateX = 0;
