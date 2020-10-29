@@ -20,8 +20,8 @@
     "url": "https://github.com/NativeScript/NativeScript/issues"
   },
   "scripts": {
-    "run.ios": "ns run ios --no-hmr",
-    "run.android": "ns run android --no-hmr"
+    "start.ios": "ns run ios --no-hmr",
+    "start.android": "ns run android --no-hmr"
   },
   "dependencies": {
     "@angular/animations": "~10.1.0",

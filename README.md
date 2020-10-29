@@ -14,10 +14,10 @@ cd demo
 npm install
 
 # run demo on ios
-npm run run.ios
+npm run start.ios
 
 # run demo on android
-npm run run.android
+npm run start.android
 ```
 
 ## List of UI Elements
