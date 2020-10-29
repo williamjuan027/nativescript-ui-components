@@ -61,6 +61,7 @@ export class PinchToZoomDirective {
       this._view.originY = 0.5;
     }
 
+    // animate the image to snap back to its original position
     this._view
       .animate({
         scale: { x: 1, y: 1 },
@@ -75,6 +76,7 @@ export class PinchToZoomDirective {
   }
 
   private _setZoomScale(newScale: number): void {
+    // remove this check if you want to be able to zoom out
     if (newScale >= 1) {
       // only allow view to be zoomed in
       this._view.scaleX = newScale * 2;
@@ -97,7 +99,7 @@ export class PinchToZoomDirective {
   }
 
   private _setOutOfBounds(focusX: number, focusY: number): void {
-    // check if foxus points fall out of the boundaries are not
+    // check if focus points fall out of the boundaries are not
     this._isOutOfBounds =
       focusX < this._imageBoundary ||
       focusX > (this._view.getMeasuredWidth() - this._imageBoundary) ||
