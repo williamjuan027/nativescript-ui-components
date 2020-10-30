@@ -76,11 +76,13 @@ export class PinchToZoomDirective {
   }
 
   private _setZoomScale(newScale: number): void {
-    // remove this check if you want to be able to zoom out
-    if (newScale >= 1) {
+    // only update scale using rounded values and when above a certain threshold
+    // to prevent stuttering when zooming in
+    // remove newScale >= 1 check if you want to be able to zoom out
+    if (newScale >= 1 && newScale - this._view.scaleX > 0.01) {
       // only allow view to be zoomed in
-      this._view.scaleX = newScale * 2;
-      this._view.scaleY = newScale * 2;
+      this._view.scaleX = Math.round(newScale * 100) / 100;
+      this._view.scaleY = Math.round(newScale * 100) / 100;
     }
   }
 
