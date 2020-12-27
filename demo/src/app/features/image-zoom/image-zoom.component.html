@@ -1,5 +1,5 @@
-<StackLayout class="page">
-  <Label class="title" text="Image Zoom"></Label>
-  <Label class="description" text="Pinch on image to zoom in"></Label>
-  <Image backgroundColor="#ddd" width="100%" height="500" stretch="aspectFill" src="https://source.unsplash.com/random/500x600" pinchToZoom></Image>
-</StackLayout>
+<ns-page [header]="{ title: 'Image Zoom', description: 'Pinch on image to zoom in', backEnabled: true }">
+  <StackLayout>
+    <Image backgroundColor="#ddd" width="100%" height="500" stretch="aspectFill" src="https://source.unsplash.com/random/500x600" pinchToZoom></Image>
+  </StackLayout>
+</ns-page>

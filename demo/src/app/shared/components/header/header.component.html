@@ -1,0 +1,14 @@
+<StackLayout class="header">    
+    <ng-container *ngIf="backEnabled">
+        <Label text="BACK" fontSize="15" (tap)="back()"></Label>
+    </ng-container>
+
+    <ng-container *ngIf="title">
+        <Label class="title" [text]="title"></Label>
+    </ng-container>
+    
+    <ng-container *ngIf="description">
+        <Label class="description" [text]="description"></Label>
+    </ng-container>
+
+</StackLayout>
