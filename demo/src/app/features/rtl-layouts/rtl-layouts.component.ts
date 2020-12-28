@@ -4,4 +4,10 @@ import { Component } from "@angular/core";
     selector: "ns-rtl-layouts",
     templateUrl: "./rtl-layouts.component.html",
 })
-export class RtlLayoutsComponent {}
+export class RtlLayoutsComponent {
+    isRtl = false;
+
+    toggleRtl(): void {
+        this.isRtl = !this.isRtl;
+    }
+}

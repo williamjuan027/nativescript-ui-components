@@ -1,4 +1,39 @@
 <ns-page [header]="{ title: 'RTL Layouts', description: 'Tap button to switch between LTR and RTL', backEnabled: true }">
+  <StackLayout>
     <StackLayout>
+      <ns-card>
+        <FlexboxLayout
+          [flexDirection]="isRtl ? 'row-reverse' : 'row'"
+          justifyContent="flex-start"
+          backgroundColor="white"
+          borderRadius="10"
+          padding="20">
+          <Image 
+            src="https://source.unsplash.com/random/300x300"
+            height="70"
+            width="70"
+            borderRadius="5"
+            stretch="aspectFill"></Image>
+          <StackLayout padding="10">
+            <Label 
+              fontSize="20"
+              [textAlignment]="isRtl ? 'right' : 'left'"
+              fontWeight="bold"
+              text="Some Title"></Label>
+            <Label
+              fontSize="15"
+              [textAlignment]="isRtl ? 'right' : 'left'"
+              text="Some Description"></Label>
+          </StackLayout>
+        </FlexboxLayout>
+      </ns-card>
     </StackLayout>
-  </ns-page>
+
+      <Button
+        text="Toggle RTL"
+        (tap)="toggleRtl()"
+        height="65"
+        class="button-main-action"
+      ></Button>
+  </StackLayout>
+</ns-page>
