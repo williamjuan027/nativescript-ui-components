@@ -21,4 +21,6 @@ npm run start.android
 ```
 
 ## List of UI Elements
+
 - [Image Zoom Directive](./demo/src/app/features/image-zoom) - Add pinch to zoom functionality to your images
+- [LTR/RTL Layouts](./demo/src/app/features/rtl-layouts) - Add LTR and RTL support to your app using flexbox layout
