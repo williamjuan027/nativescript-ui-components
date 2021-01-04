@@ -1,0 +1,15 @@
+<StackLayout height="100%">
+    <ScrollView height="100%">
+        <StackLayout class="page">
+            <!-- header -->
+            <ng-container *ngIf="header">
+                <ns-header [title]="header.title" [description]="header.description" [backEnabled]="header.backEnabled"></ns-header>
+            </ng-container>
+
+            <!-- main content -->
+            <StackLayout>
+                <ng-content></ng-content>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</StackLayout>

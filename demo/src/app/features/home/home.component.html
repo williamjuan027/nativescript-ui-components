@@ -1,0 +1,20 @@
+<ns-page [header]="{ title: 'UI Components Demo', backEnabled: false }">
+    <StackLayout marginTop="20">
+        <ng-container *ngFor="let option of navigationOptions">
+            <StackLayout marginTop="10">
+                <ns-card>
+                    <GridLayout 
+                        (tap)="navigateTo(option.url)" 
+                        padding="20"
+                        borderRadius="10"
+                        backgroundColor="white">
+                        <Label 
+                            [text]="option.text"
+                            fontSize="20"
+                            fontWeight="bold"></Label>
+                    </GridLayout>
+                </ns-card>
+            </StackLayout>
+        </ng-container>
+    </StackLayout>
+</ns-page>

@@ -21,7 +21,7 @@ The following CSS rule changes the font size of all Buttons that have the
 "-primary" class modifier.
 */
 Button.-primary {
-    font-size: 18;
+  font-size: 18;
 }
 
 .page {
@@ -37,4 +37,15 @@ Button.-primary {
 .description {
   font-size: 17;
   margin: 10 0;
+}
+
+.button-main-action {
+  font-size: 20;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  margin: 20 0;
+  background-color: #5783ff;
+  color: #fff;
+  border-radius: 50%;
 }

@@ -14,7 +14,19 @@
       "baseUrl": ".",
       "paths": {
           "~/*": [
-              "app/*"
+              "src/app/*"
+          ],
+          "@app-core/*": [
+            "src/app/core/*"
+          ],
+          "@app-core": [
+            "src/app/core/index.ts"
+          ],
+          "@app-shared/*": [
+            "src/app/shared/*"
+          ],
+          "@app-shared": [
+            "src/app/shared/index.ts"
           ]
       }
   },
